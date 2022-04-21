@@ -1,0 +1,51 @@
+@import "@/sass/mixins.scss";
+@import "@/sass/variables.scss";
+form {
+    width: 80%;
+    margin: 12% 12%;
+    background: white;
+    text-align: left;
+    padding: 35px;
+    border-radius: 10px;
+  }
+label {
+    color: #000;
+    display: inline-block;
+    margin: 25px 0 15px;
+    font-size: 0.6em;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+input{
+    @include inputing;
+  }
+.errMessage{
+  color: rgb(200, 0, 0);
+  padding-top: 5px;
+}
+.checkbox{
+    display: inline-block;
+    width: 16px;
+    margin: 0 10px 0 0;
+    position: relative;
+    top: 2px;
+  }
+h2{
+  text-align: center;
+}
+.submit{
+  @include flexing($direction:row,$justify-content:space-between);
+  margin-top: 30px;
+  
+button{
+  @include buttning;
+}
+a{
+   @include texting($font-size:0.8em);
+   cursor: pointer;
+   &:hover{
+     color: $primary-color;
+   }
+}
+}

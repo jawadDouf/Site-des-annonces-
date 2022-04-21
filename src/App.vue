@@ -1,30 +1,57 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+     <Nav v-if="ls"  :setls="setls"/>  
+  
+  <router-view :setls="setls" :ls="ls" :num="num"/>
 </template>
+<script>
+import Nav from "./components/globalComps/nav.vue";
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default{
+  data(){
+    return{
+      ls : false,
+      
     }
+  },
+  methods : {
+     setls(value){
+       this.ls = value
+     }
+  },
+   components : {
+    Nav
+},
+mounted(){
+  if(sessionStorage.getItem('id') !== null){
+    this.setls(true)
   }
 }
+
+
+}
+</script>
+<style lang="scss">
+// #app {
+//   font-family: Avenir, Helvetica, Arial, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   text-align: center;
+//   color: #2c3e50;
+// }
+// body{
+//   margin: 0;
+//   padding: 0;
+// }
+// nav {
+//   padding: 30px;
+
+//   a {
+//     font-weight: bold;
+//     color: #2c3e50;
+
+//     &.router-link-exact-active {
+//       color: #42b983;
+//     }
+//   }
+// }
 </style>
